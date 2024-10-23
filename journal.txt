@@ -1,0 +1,10 @@
+Write a new entry: Test
+/bin/python3 /home/john/Documents/tutoring/julien/journal/journal.py
+/bin/python3 /home/john/Documents/tutoring/julien/journal/journal.py
+16/10/2024hi
+16/10/2024
+test
+16/10/2024
+new one
+###new one###16/10/2024
+this is the lates entry
