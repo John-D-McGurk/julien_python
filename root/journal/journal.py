@@ -1,7 +1,7 @@
 import datetime
 
 def read_entries():
-    with open("journal/journal.txt", "r") as file_read:
+    with open("/home/john/Documents/tutoring/julien/root/journal/journal.txt", "r") as file_read:
         content = file_read.read()
         content = content.split("\n\n")   
         number_entries = len(content)     
@@ -10,16 +10,20 @@ def read_entries():
         print(content[entry_picker - 1])
 
 def write_entries():
-    with open("journal/journal.txt", "a") as file_append: 
+    with open("/home/john/Documents/tutoring/julien/root/journal/journal.txt", "a") as file_append: 
         time = datetime.datetime.now().strftime("%d/%m/%Y")
         new_entry = "### "  + input("Enter a heading: ") + " ###\n"
         new_entry += time
         new_entry += "\n" + input("Write a new entry: ")
         file_append.write("\n\n" + new_entry)
 
-read_or_write = input("Type r to read or w to write: ")
+def choose():
+    read_or_write = input("Type r to read or w to write: ")
+    if read_or_write == "r":
+        read_entries()
+    elif read_or_write == "w":
+        write_entries()
 
-if read_or_write == "r":
-    read_entries()
-elif read_or_write == "w":
-    write_entries()
+
+if __name__ == "__main__":
+    choose()
