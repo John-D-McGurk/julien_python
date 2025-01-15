@@ -1,4 +1,4 @@
-import ceaser
+import login.ceaser as ceaser
 
 CEASER = 6536
 
@@ -17,6 +17,8 @@ def create_user():
 
     with open("/home/john/Documents/tutoring/julien/root/login/login_credentials.csv", "a") as file:
         file.write("\n" + username + "," + password_encrypted)
+    print("Please log in")
+    return log_in()
 
 def check_credentials(username, password):
     with open("/home/john/Documents/tutoring/julien/root/login/login_credentials.csv", "r") as file:
@@ -30,18 +32,21 @@ def check_credentials(username, password):
             if username == check_username:
                 if password == check_password:
                     print("Welcome to Phil")
-                    break
+                    return username
+        print("Login unsuccessful")
+        return pick()
     
 def log_in():
     username = get_username()
     password = get_password()
     encrypted_password = ceaser.encrypt(password, CEASER)
-    check_credentials(username, password)
+    return check_credentials(username, encrypted_password)
 
-select = input("l to log in, c to create user: ")
+def pick():
+    select = input("l to log in, c to create user: ")
 
-if select == "l":
-    log_in()
+    if select == "l":
+        return log_in()
 
-elif select == "c":
-    create_user()
+    elif select == "c":
+        return create_user()
