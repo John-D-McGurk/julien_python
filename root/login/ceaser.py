@@ -1,4 +1,8 @@
 def get_allowed_chars(start, stop):
+    """
+    Gets list of chars that can be used in password
+    """
+    # 
     allowed_chars = list()
     for char in range(start, stop + 1):
         character = chr(char)
@@ -7,6 +11,9 @@ def get_allowed_chars(start, stop):
     return allowed_chars
 
 def encrypt(password, encryption_num):
+    """
+    
+    """
     char_list = get_allowed_chars(48, 57)
     char_list = char_list + get_allowed_chars(65, 90)
     char_list = char_list + get_allowed_chars(97, 122)
