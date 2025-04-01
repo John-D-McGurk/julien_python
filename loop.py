@@ -1,3 +1,4 @@
+import objects
 user_symbol = input("What symbol should we use?")
 
 for i in range(10):
